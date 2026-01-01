@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Columbo Teacher methodology - rethinking mathematics education in the age of AI. From Sherlock Holmes to Lieutenant Columbo: students as critical validators.">
+    <title>Methodology - A.U.D.I.T. Protocol</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS VARIABLES */
+        :root {
+            --primary-dark: #1E3A5F;
+            --accent-gold: #D4A847;
+            --bg-white: #FFFFFF;
+            --bg-light: #F5F7FA;
+            --text-dark: #2C3E50;
+            --text-gray: #5A6C7D;
+            --border-light: #E1E8ED;
+            
+            --font-serif: 'Source Serif 4', Georgia, serif;
+            --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+            
+            --border-radius: 8px;
+        }
+        
+        /* GLOBAL STYLES */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { font-size: 16px; scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-color: var(--bg-white);
+        }
+        
+        h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; }
+        
+        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: var(--spacing-md); }
+        h2 { font-size: 2rem; line-height: 1.3; margin: var(--spacing-xl) 0 var(--spacing-md); color: var(--primary-dark); }
+        h3 { font-size: 1.5rem; line-height: 1.4; margin: var(--spacing-lg) 0 var(--spacing-sm); color: var(--primary-dark); }
+        
+        p { margin-bottom: var(--spacing-md); }
+        
+        a { color: var(--primary-dark); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--accent-gold); }
+        
+        strong { font-weight: 600; }
+        em { font-style: italic; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        
+        /* HEADER */
+        header {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: var(--spacing-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bg-white);
+        }
+        
+        .tagline {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+        
+        nav a {
+            color: var(--bg-white);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+        
+        /* METHODOLOGY HERO */
+        .methodology-hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2E5A8F 100%);
+            color: var(--bg-white);
+            padding: var(--spacing-xxl) 0 var(--spacing-xl);
+            text-align: center;
+        }
+        
+        .methodology-hero h1 {
+            color: var(--bg-white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .methodology-hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        /* DOWNLOAD CTA */
+        .download-cta {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(212, 168, 71, 0.3);
+        }
+        
+        .download-cta:hover {
+            background-color: #c49635;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(212, 168, 71, 0.4);
+            color: var(--primary-dark);
+        }
+        
+        /* CONTENT SECTIONS */
+        .content-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .content-section:nth-child(even) {
+            background-color: var(--bg-light);
+        }
+        
+        /* BLOCKQUOTE */
+        blockquote {
+            border-left: 4px solid var(--accent-gold);
+            padding-left: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+            font-style: italic;
+            color: var(--text-gray);
+            background-color: rgba(212, 168, 71, 0.05);
+            padding: var(--spacing-md);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        /* KEY INSIGHT BOX */
+        .key-insight {
+            background-color: #FFF9E6;
+            border-left: 4px solid var(--accent-gold);
+            padding: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .key-insight strong {
+            color: var(--primary-dark);
+        }
+        
+        /* SKILL CARDS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        /* SKILL CARDS - 4 ITEMS (2x2 LAYOUT) */
+        .skills-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .skill-card {
+            background: var(--bg-white);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            border-left: 3px solid var(--accent-gold);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .skill-card strong {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        /* AXES GRID */
+        .axes-grid {
+            display: grid;
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .axis-item {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .axis-item h4 {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        /* AUDIT PROTOCOL BOX */
+        .audit-protocol {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2E5A8F 100%);
+            color: var(--bg-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .audit-protocol h2 {
+            color: var(--accent-gold);
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .audit-protocol .protocol-item {
+            margin: var(--spacing-md) 0;
+            padding: var(--spacing-md);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+        }
+        
+        .audit-protocol .protocol-letter {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-right: var(--spacing-sm);
+        }
+        
+        .audit-protocol strong {
+            color: var(--accent-gold);
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: var(--bg-white); }
+        .footer-section a:hover { color: var(--accent-gold); }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .transparency-note {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: var(--accent-gold);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            html { font-size: 14px; }
+            
+            nav ul {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--spacing-md);
+            }
+            
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.7rem; }
+            h3 { font-size: 1.3rem; }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <div class="logo">A.U.D.I.T. Protocol</div>
+                    <div class="tagline">Critical AI Literacy Framework</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="methodology.html">Methodology</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="methodology-hero">
+        <div class="container">
+            <h1>The "Columbo Teacher"</h1>
+            <p class="subtitle">Rethinking Mathematics Education in the Age of Artificial Intelligence</p>
+            <a href="The_Columbo_Teacher_Full_Article.pdf" class="download-cta" download>
+                📄 Download Full Article (PDF)
+            </a>
+        </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Introduction</h2>
+            <p>In the TV series, Lieutenant Columbo generally knows the culprit from the start. His job is not to discover "whodunit," but to <strong>build the proof, track inconsistencies, and demonstrate guilt</strong>. This is precisely the mindset we must cultivate in our students when facing AI.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 1 -->
+    <section class="content-section">
+        <div class="container">
+            <h2>1. Lessons from the Past: When Technology Shifts the Stakes</h2>
+            
+            <h3>The Example of Variation Tables</h3>
+            <p>Before graphing calculators, variation tables were the culmination of a long analytical process—an indispensable step for manually plotting a function's curve. The plot itself was part of high school exit exams.</p>
+            
+            <p>The arrival of technology <strong>reversed this logic</strong>. The curve became an immediate "given." Plotting disappeared from exams. Yet variation tables didn't vanish; their role transformed: they now serve to <strong>synthesize and give meaning</strong> to an already-visible object.</p>
+            
+            <div class="key-insight">
+                <strong>Key insight:</strong> Technological tools don't replace thinking—they shift where thinking takes place.
+            </div>
+            
+            <h3>What AI Changes Fundamentally</h3>
+            <p>Generative AI pushes this logic to its extreme. It doesn't just provide graphs: it offers <strong>complete reasoning chains</strong>, structured proofs, argued solutions.</p>
+            
+            <p>Within Brousseau's Theory of Didactical Situations, the "milieu"—the antagonistic system the student confronts—gains a new element: <strong>the machine-generated answer</strong>, which must be analyzed, validated, or refuted.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="content-section">
+        <div class="container">
+            <h2>2. From "Sherlock Mode" to "Columbo Mode"</h2>
+            
+            <h3>The Traditional Model: The Student-Investigator</h3>
+            <p>Historically, students operated in "Sherlock Holmes" mode. They started from a mystery—the problem—to search alone for the solution. The teacher was the "revealer of enigmas" and the sole source of explanations.</p>
+            
+            <h3>The New Model: The Student-Validator</h3>
+            <p>AI changes the game by providing immediate access to solutions. Faced with an already-generated answer, students must adopt <strong>Lieutenant Columbo's stance</strong>: build the proof, track inconsistencies, demonstrate.</p>
+            
+            <blockquote>
+                The pedagogical challenge shifts from raw production to critical analysis and validation of machine-proposed solutions.
+            </blockquote>
+            
+            <h3>Skills of "Columbo Mode"</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <strong>Critical Analysis</strong>
+                    <p>Examine a solution, identify strengths and weaknesses, spot "hallucinations."</p>
+                </div>
+                <div class="skill-card">
+                    <strong>Regulation</strong>
+                    <p>Adjust one's approach, reformulate questions, clarify expectations.</p>
+                </div>
+                <div class="skill-card">
+                    <strong>Validation</strong>
+                    <p>Verify mathematical coherence, cross-reference with other sources.</p>
+                </div>
+                <div class="skill-card">
+                    <strong>Evaluation</strong>
+                    <p>Judge relevance, appreciate diversity of approaches.</p>
+                </div>
+                <div class="skill-card">
+                    <strong>Metacognition</strong>
+                    <p>Reflect on one's own learning process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="content-section">
+        <div class="container">
+            <h2>3. The Teacher's Metamorphosis</h2>
+            
+            <h3>From Transmitter to Orchestrator</h3>
+            <p>The teacher doesn't disappear—quite the contrary. They become a "director of learning environments." Learning doesn't end where AI gives an answer. <strong>It begins precisely there.</strong></p>
+            
+            <h3>Three New Axes of the Profession</h3>
+            <div class="axes-grid">
+                <div class="axis-item">
+                    <h4>1. Curator and Validator</h4>
+                    <p>AI easily generates resources. The teacher selects and guarantees their rigor. This task demands reinforced disciplinary expertise.</p>
+                </div>
+                
+                <div class="axis-item">
+                    <h4>2. Guide to Understanding</h4>
+                    <p>The teacher helps students make meaning and contextualize. They provide what no machine can offer: mathematical intuition, connection to lived experience.</p>
+                </div>
+                
+                <div class="axis-item">
+                    <h4>3. Guardian of Critical Thinking</h4>
+                    <p>Training students to unmask "hallucinations." The machine's error becomes prime didactic material.</p>
+                </div>
+            </div>
+            
+            <h3>What Remains Irreducibly Human</h3>
+            <ul style="list-style-position: inside; margin-left: var(--spacing-md);">
+                <li><strong>Presence</strong> - observing a furrowed brow, sensing a classroom</li>
+                <li><strong>Relationship</strong> - the climate of trust, the reassuring smile</li>
+                <li><strong>Intelligence of the moment</strong> - changing strategy in a split second</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="content-section">
+        <div class="container">
+            <h2>4. The Student in Critical Dialogue with the Machine</h2>
+            
+            <h3>AI as "Milieu" in Brousseau's Sense</h3>
+            <p>Far from rendering students passive, AI creates new didactic "milieus":</p>
+            <ul style="list-style-position: inside; margin-left: var(--spacing-md);">
+                <li>AI proposes answers that students must evaluate</li>
+                <li>It can be wrong, creating learning opportunities</li>
+                <li>It can be queried iteratively</li>
+            </ul>
+            
+            <h3>Constructive Conversation</h3>
+            <div class="skills-grid-4">
+                <div class="skill-card">
+                    <strong>Progressive Questioning</strong>
+                    <p>Refine requests, specify constraints.</p>
+                </div>
+                <div class="skill-card">
+                    <strong>Confrontation</strong>
+                    <p>Propose counterexamples, demand justification.</p>
+                </div>
+                <div class="skill-card">
+                    <strong>Cross-Verification</strong>
+                    <p>Compare with other sources, with peers.</p>
+                </div>
+                <div class="skill-card">
+                    <strong>Meta-reflection</strong>
+                    <p>Analyze why AI responded this way, what biases affect it.</p>
+                </div>
+            </div>
+            
+            <h3>From Reproducer to Judge</h3>
+            <p>Bloom's taxonomy takes on full meaning: lower levels (remember, apply) can be delegated to AI, while higher levels (<strong>analyze, evaluate, create</strong>) become the core of students' intellectual activity.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="content-section">
+        <div class="container">
+            <h2>5. Epistemological Implications</h2>
+            
+            <h3>AI Doesn't Know—It Predicts</h3>
+            <p>This fundamental distinction must be explicitly taught. AI doesn't understand mathematics; it recognizes statistical patterns in language.</p>
+            
+            <div class="key-insight">
+                <strong>Teaching moment:</strong> When AI provides a correct answer, students must understand it's not because the machine "knows" but because it has seen similar patterns billions of times.
+            </div>
+            
+            <h3>The New Status of Error</h3>
+            <p>AI error becomes pedagogical gold. Unlike a textbook (presumed correct), AI can confidently assert falsehoods. This creates unprecedented teaching opportunities.</p>
+            
+            <p><strong>Pedagogical shift:</strong> Error is no longer just student error to correct, but machine error to detect—a more engaging and less threatening dynamic.</p>
+        </div>
+    </section>
+
+    <!-- AUDIT PROTOCOL -->
+    <section class="content-section">
+        <div class="container">
+            <div class="audit-protocol">
+                <h2>6. The A.U.D.I.T. Protocol</h2>
+                <p style="text-align: center; margin-bottom: var(--spacing-lg);">The transition from theory to practice crystallizes in this repeatable cognitive routine:</p>
+                
+                <div class="protocol-item">
+                    <span class="protocol-letter">A</span>
+                    <strong>Analyze</strong> — Systematic examination of AI outputs
+                </div>
+                
+                <div class="protocol-item">
+                    <span class="protocol-letter">U</span>
+                    <strong>Use knowledge</strong> — Mobilize disciplinary expertise
+                </div>
+                
+                <div class="protocol-item">
+                    <span class="protocol-letter">D</span>
+                    <strong>Doubt</strong> — Maintain methodical skepticism
+                </div>
+                
+                <div class="protocol-item">
+                    <span class="protocol-letter">I</span>
+                    <strong>Interrogate limits</strong> — Test boundaries through traps
+                </div>
+                
+                <div class="protocol-item">
+                    <span class="protocol-letter">T</span>
+                    <strong>Test</strong> — Verify and validate
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="content-section">
+        <div class="container">
+            <h2>7. Assessment in the AI Era</h2>
+            
+            <h3>What to Assess?</h3>
+            <p>Not the final product (potentially AI-generated) but:</p>
+            <ul style="list-style-position: inside; margin-left: var(--spacing-md);">
+                <li><strong>The validation process:</strong> How did the student verify AI output?</li>
+                <li><strong>Critical analysis:</strong> What weaknesses did they identify?</li>
+                <li><strong>Iterative refinement:</strong> How did they improve the machine's response?</li>
+            </ul>
+            
+            <h3>New Evaluation Formats</h3>
+            <div class="skills-grid-4">
+                <div class="skill-card">
+                    <strong>AI audit reports</strong>
+                    <p>Students document their critical analysis</p>
+                </div>
+                <div class="skill-card">
+                    <strong>Trap design</strong>
+                    <p>Creating scenarios that reveal AI limits</p>
+                </div>
+                <div class="skill-card">
+                    <strong>Comparative analysis</strong>
+                    <p>Evaluating outputs from multiple AI tools</p>
+                </div>
+                <div class="skill-card">
+                    <strong>Usage charters</strong>
+                    <p>Students develop their own AI use guidelines</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="content-section">
+        <div class="container">
+            <h2>8. Broader Societal Stakes</h2>
+            
+            <h3>Beyond Mathematics</h3>
+            <p>While developed for mathematics education, this approach extends to all disciplines. The "Columbo" mindset—critical validator rather than passive receiver—is essential across the curriculum.</p>
+            
+            <h3>Preparing Citizens, Not Just Students</h3>
+            <p>In a world where AI generates content en masse, the ability to <strong>critically evaluate machine outputs</strong> becomes a fundamental civic competency. We're not just teaching math; we're forming critical citizens.</p>
+        </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Conclusion: The Irreplaceable Human Touch</h2>
+            <p>AI doesn't threaten the teaching profession—it redefines it. The teacher's role becomes more essential, not less:</p>
+            
+            <ul style="list-style-position: inside; margin-left: var(--spacing-md); margin-bottom: var(--spacing-lg);">
+                <li><strong>More curatorial</strong> — selecting quality among abundance</li>
+                <li><strong>More relational</strong> — the human connection AI cannot provide</li>
+                <li><strong>More metacognitive</strong> — guiding reflection on learning itself</li>
+                <li><strong>More critical</strong> — modeling skepticism and validation</li>
+            </ul>
+            
+            <blockquote>
+                The "Columbo Teacher" doesn't compete with AI. They teach students to dance with it—skillfully, critically, and autonomously.
+            </blockquote>
+            
+            <div style="text-align: center; margin-top: var(--spacing-xl);">
+                <a href="The_Columbo_Teacher_Full_Article.pdf" class="download-cta" download>
+                    📄 Download Full Article with Complete Bibliography (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- THEORETICAL REFERENCES -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Theoretical References</h2>
+            <p>This reflection draws upon 18 frameworks from educational research, including:</p>
+            <ul style="list-style-position: inside; margin-left: var(--spacing-md);">
+                <li>Brousseau's Theory of Didactical Situations</li>
+                <li>Rabardel's Instrumental Approach</li>
+                <li>Bloom's Taxonomy (revised)</li>
+                <li>Wineburg's Historical Thinking</li>
+                <li>Paul & Elder's Critical Thinking Framework</li>
+                <li>Vygotsky's Zone of Proximal Development</li>
+                <li>And others (complete bibliography available in the downloadable PDF)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>A.U.D.I.T. Protocol</h3>
+                    <p>Critical AI Literacy Framework for Secondary Education</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="methodology.html">Methodology</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="The_Columbo_Teacher_Full_Article.pdf" download>Full Article (PDF)</a></li>
+                        <li><a href="https://philipped79.github.io/audit-ia" target="_blank">French Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>License</h3>
+                    <p>CC BY-NC-SA 4.0</p>
+                    <p>Non-commercial educational use</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Philippe Dupeyrat. All rights reserved.</p>
+                <p class="transparency-note">This site was created with the assistance of AI—practicing the critical evaluation we teach.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

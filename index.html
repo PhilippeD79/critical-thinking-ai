@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A.U.D.I.T. Protocol: Teaching students to critically evaluate AI outputs rather than blindly accept them.">
+    <meta name="author" content="Philippe Dupeyrat">
+    <title>A.U.D.I.T. Protocol - Critical AI Literacy Framework</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ROOT VARIABLES */
+        :root {
+            --primary-dark: #1E3A5F;
+            --primary-light: #2A5080;
+            --accent-gold: #D4A847;
+            --text-dark: #1a1a1a;
+            --text-medium: #4a4a4a;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-color: #e1e4e8;
+            --font-serif: 'Source Serif 4', Georgia, serif;
+            --font-sans: 'IBM Plex Sans', sans-serif;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --max-width: 1200px;
+            --border-radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-dark);
+        }
+        
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        
+        p { margin-bottom: var(--spacing-sm); line-height: 1.7; }
+        a { color: var(--primary-dark); text-decoration: none; transition: all 0.3s; }
+        a:hover { color: var(--accent-gold); }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        /* HEADER */
+        header {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: var(--spacing-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .main-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-brand h1 {
+            color: var(--bg-white);
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .tagline {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+        
+        .nav-menu a {
+            color: var(--bg-white);
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            border-radius: var(--border-radius);
+            transition: all 0.3s;
+        }
+        
+        .nav-menu a:hover, .nav-menu a.active {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+        
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: var(--bg-white);
+            padding: var(--spacing-2xl) 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            color: var(--bg-white);
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xl);
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+        
+        .stat-label { font-size: 0.9rem; margin-top: 0.5rem; }
+        
+        /* SECTIONS */
+        section { padding: var(--spacing-2xl) 0; }
+        section:nth-child(even) { background-color: var(--bg-light); }
+        
+        .section-intro {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xl);
+            text-align: center;
+            color: var(--text-medium);
+        }
+        
+        /* AUDIT GRID */
+        .audit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .audit-card {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border: 2px solid var(--border-color);
+            transition: all 0.3s;
+        }
+        
+        .audit-card:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+        
+        .card-letter {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .audit-card p strong {
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* IDEAS GRID */
+        .ideas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .idea-card {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .idea-icon { font-size: 3rem; margin-bottom: var(--spacing-md); }
+        
+        /* SEQUENCES */
+        .sequences-list { max-width: 900px; margin: 0 auto; }
+        
+        .sequence-item {
+            display: flex;
+            gap: var(--spacing-lg);
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-gold);
+            margin-bottom: var(--spacing-lg);
+            transition: all 0.3s;
+        }
+        
+        .sequence-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateX(8px);
+        }
+        
+        .sequence-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        .sequence-skill {
+            color: var(--primary-dark);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        /* BUTTONS */
+        .btn-primary, .btn-secondary {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+        
+        .btn-primary:hover {
+            background-color: #c49635;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+        }
+        
+        /* CTA BOX */
+        .cta-box {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+        
+        .cta-box p { font-size: 1.1rem; margin-bottom: var(--spacing-md); }
+        
+        /* MATTERS GRID */
+        .matters-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+        
+        .matter-item {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+        }
+        
+        /* FEEDBACK & ABOUT */
+        .feedback-section, .about-preview {
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+        
+        .feedback-section a, .about-preview a[target="_blank"] {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: var(--spacing-2xl) 0 var(--spacing-md);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: var(--bg-white); }
+        .footer-section a:hover { color: var(--accent-gold); }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: var(--spacing-md);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .transparency-note {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: var(--accent-gold);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            html { font-size: 14px; }
+            .nav-menu { flex-direction: column; gap: var(--spacing-sm); }
+            .hero h2 { font-size: 1.8rem; }
+            .audit-grid, .ideas-grid, .matters-grid { grid-template-columns: 1fr; }
+            .sequence-item { flex-direction: column; text-align: center; }
+            .footer-content { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>A.U.D.I.T. Protocol</h1>
+                    <p class="tagline">Critical AI Literacy Framework</p>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Methodology</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <h2>Teaching Students to Question AI, Not Just Use It</h2>
+                <p class="hero-subtitle">The A.U.D.I.T. Protocol transforms students from passive consumers of AI outputs into critical validators—the shift from "Sherlock Holmes" to "Columbo."</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">90%</span>
+                        <span class="stat-label">of French students use AI for homework</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">classroom-tested sequences</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">critical thinking skills</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT IS AUDIT -->
+        <section class="what-is-audit">
+            <div class="container">
+                <h2>What is the A.U.D.I.T. Protocol?</h2>
+                <p class="section-intro">A pedagogical framework for developing critical AI literacy in secondary education (grades 6-12). Instead of prohibiting AI use, A.U.D.I.T. teaches students to systematically evaluate AI-generated content.</p>
+                
+                <div class="audit-grid">
+                    <!-- INTRO CARD -->
+                    <div class="audit-card audit-intro">
+                        <h3 style="text-align: center; color: var(--primary-dark); font-size: 2.2rem; margin-bottom: 1.5rem;">A.U.D.I.T.</h3>
+                        <ul style="list-style: none; padding: 0; text-align: center; line-height: 2.5; font-size: 1.15rem;">
+                            <li><strong style="font-size: 1.3rem;">A</strong>nalyze</li>
+                            <li><strong style="font-size: 1.3rem;">U</strong>se Knowledge</li>
+                            <li><strong style="font-size: 1.3rem;">D</strong>oubt</li>
+                            <li><strong style="font-size: 1.3rem;">I</strong>nterrogate Limits</li>
+                            <li><strong style="font-size: 1.3rem;">T</strong>est</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="audit-card">
+                        <div class="card-letter">A</div>
+                        <h3>Analyze</h3>
+                        <p><strong>Clarity & Coherence</strong></p>
+                        <p>Does the response directly address the question? Are explanations logically structured? Students learn to identify vague or circular reasoning.</p>
+                    </div>
+                    
+                    <div class="audit-card">
+                        <div class="card-letter">U</div>
+                        <h3>Use Knowledge</h3>
+                        <p><strong>Accuracy & Precision</strong></p>
+                        <p>Cross-check AI responses against existing knowledge. Are facts verifiable? Do numbers make sense? Students activate their foundational understanding.</p>
+                    </div>
+                    
+                    <div class="audit-card">
+                        <div class="card-letter">D</div>
+                        <h3>Doubt</h3>
+                        <p><strong>Detect Hallucinations</strong></p>
+                        <p>AI confidently presents fabricated information as fact. Students learn to recognize warning signs: invented sources, impossible dates, contradictory statements.</p>
+                    </div>
+                    
+                    <div class="audit-card">
+                        <div class="card-letter">I</div>
+                        <h3>Interrogate Limits</h3>
+                        <p><strong>Depth & Breadth</strong></p>
+                        <p>Does the response oversimplify? What's missing? Students identify superficial answers and gaps in reasoning.</p>
+                    </div>
+                    
+                    <div class="audit-card">
+                        <div class="card-letter">T</div>
+                        <h3>Test</h3>
+                        <p><strong>Verify & Validate</strong></p>
+                        <p>Use alternative sources, check edge cases, test with examples. Students develop systematic verification habits.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THREE CORE IDEAS -->
+        <section class="core-ideas">
+            <div class="container">
+                <h2>Three Core Ideas</h2>
+                
+                <div class="ideas-grid">
+                    <div class="idea-card">
+                        <div class="idea-icon">🔍</div>
+                        <h3>From "Sherlock" to "Columbo"</h3>
+                        <p>Traditionally, students were investigators seeking solutions (Sherlock Holmes model). With AI providing instant answers, the role shifts: students become critical validators who question machine-generated responses (Columbo model)—"Just one more thing..."</p>
+                    </div>
+                    
+                    <div class="idea-card">
+                        <div class="idea-icon">👨‍🏫</div>
+                        <h3>Teacher as Orchestrator</h3>
+                        <p>The teacher's role evolves from knowledge transmitter to orchestrator of critical thinking. Guide students in evaluating AI outputs, curate meaningful scenarios, and cultivate systematic skepticism.</p>
+                    </div>
+                    
+                    <div class="idea-card">
+                        <div class="idea-icon">💬</div>
+                        <h3>Dialogue, Not Dictation</h3>
+                        <p>Students engage AI through iterative questioning, comparing outputs, and identifying limitations. This constructive dialogue develops metacognitive awareness about both AI capabilities and human judgment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOUR SEQUENCES -->
+        <section class="sequences">
+            <div class="container">
+                <h2>Four Classroom-Ready Sequences</h2>
+                <p class="section-intro">Progressive activities designed for middle school (grades 6-8) and high school (grades 9-12), each targeting specific critical thinking skills.</p>
+                
+                <div class="sequences-list">
+                    <div class="sequence-item">
+                        <div class="sequence-number">01</div>
+                        <div class="sequence-content">
+                            <h3>Style & Patterns</h3>
+                            <p class="sequence-skill"><strong>Skill:</strong> Recognize AI writing patterns</p>
+                            <p>Students analyze texts to identify AI-generated content through linguistic markers, repetitive structures, and stylistic patterns.</p>
+                            <a href="#" class="btn-secondary">View Sequence →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="sequence-item">
+                        <div class="sequence-number">02</div>
+                        <div class="sequence-content">
+                            <h3>Facts & Verification</h3>
+                            <p class="sequence-skill"><strong>Skill:</strong> Fact-check AI outputs</p>
+                            <p>The "trap-setting" approach: students craft questions designed to make AI fail (impossible dates, nonexistent theorems).</p>
+                            <a href="#" class="btn-secondary">View Sequence →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="sequence-item">
+                        <div class="sequence-number">03</div>
+                        <div class="sequence-content">
+                            <h3>Reasoning & Logic</h3>
+                            <p class="sequence-skill"><strong>Skill:</strong> Evaluate mathematical reasoning</p>
+                            <p>Students examine AI solutions for logical gaps, unjustified steps, and circular arguments.</p>
+                            <a href="#" class="btn-secondary">View Sequence →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="sequence-item">
+                        <div class="sequence-number">04</div>
+                        <div class="sequence-content">
+                            <h3>Bias & Assumptions</h3>
+                            <p class="sequence-skill"><strong>Skill:</strong> Identify embedded biases</p>
+                            <p>Through carefully paired prompts (same context, different names), students discover how AI responses reflect societal stereotypes.</p>
+                            <a href="#" class="btn-secondary">View Sequence →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-box">
+                    <p><strong>Ready to implement?</strong> All sequences include student worksheets, teacher guides, and assessment rubrics.</p>
+                    <a href="#" class="btn-primary">Access Full Resources</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY THIS MATTERS -->
+        <section class="why-matters">
+            <div class="container">
+                <h2>Why Critical AI Literacy Matters</h2>
+                
+                <div class="matters-grid">
+                    <div class="matter-item">
+                        <h3>📊 Prohibition Doesn't Work</h3>
+                        <p>Research shows 70% of teachers prohibit AI tools, yet students use them anyway—in secret. The A.U.D.I.T. approach acknowledges reality and teaches responsible use.</p>
+                    </div>
+                    
+                    <div class="matter-item">
+                        <h3>🧠 Foundational Knowledge Remains Essential</h3>
+                        <p>You cannot critically evaluate what you don't understand. A.U.D.I.T. reinforces the necessity of mathematical foundations.</p>
+                    </div>
+                    
+                    <div class="matter-item">
+                        <h3>🎓 Future-Ready Skills</h3>
+                        <p>Students will work in AI-saturated environments. Teaching them to be critical validators prepares them for careers requiring human judgment alongside machine capabilities.</p>
+                    </div>
+                    
+                    <div class="matter-item">
+                        <h3>⚖️ From Production to Validation</h3>
+                        <p>The pedagogical challenge shifts from "find the answer" to "evaluate this proposed solution." This aligns with higher-order thinking skills in Bloom's taxonomy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FEEDBACK -->
+        <section class="feedback-section">
+            <div class="container">
+                <h2>Your Feedback Matters</h2>
+                <p>These sequences are evolving. If you test them in class, your observations—what works, what doesn't, what you've adapted—will be invaluable to me.</p>
+                <p><strong>Contact:</strong> <a href="mailto:philippe.dupeyrat@icloud.com">philippe.dupeyrat@icloud.com</a></p>
+            </div>
+        </section>
+
+        <!-- ABOUT PREVIEW -->
+        <section class="about-preview">
+            <div class="container">
+                <h2>About This Framework</h2>
+                <p>The A.U.D.I.T. Protocol was developed by Philippe Dupeyrat, Mathematics Education Inspector, France.</p>
+                <p>Originally created for the French education system, this methodology is designed to be adaptable to international contexts.</p>
+                <p><strong>Complete pedagogical resources</strong> (detailed worksheets, teacher guides, assessment rubrics) are available in French at: <a href="https://philipped79.github.io/audit-ia" target="_blank">philipped79.github.io/audit-ia</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>A.U.D.I.T. Protocol</h3>
+                    <p>Critical AI Literacy Framework</p>
+                    <p>Developed by Philippe Dupeyrat</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Methodology</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://philipped79.github.io/audit-ia" target="_blank">French Site</a></li>
+                        <li><a href="mailto:philippe.dupeyrat@icloud.com">Email Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>License</h3>
+                    <p>Content: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></p>
+                    <p>Free for educational use with attribution</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Philippe Dupeyrat. Built to foster critical thinking in the age of AI.</p>
+                <p class="transparency-note">This site was created with the assistance of AI—practicing the critical evaluation we teach.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

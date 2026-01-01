@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About the A.U.D.I.T. Protocol - genesis, author Philippe Dupeyrat, educational approach, and international collaboration.">
+    <title>About - A.U.D.I.T. Protocol</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS VARIABLES */
+        :root {
+            --primary-dark: #1E3A5F;
+            --accent-gold: #D4A847;
+            --bg-white: #FFFFFF;
+            --bg-light: #F5F7FA;
+            --text-dark: #2C3E50;
+            --text-gray: #5A6C7D;
+            --border-light: #E1E8ED;
+            
+            --font-serif: 'Source Serif 4', Georgia, serif;
+            --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+            
+            --border-radius: 8px;
+        }
+        
+        /* GLOBAL STYLES */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { font-size: 16px; scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-color: var(--bg-white);
+        }        
+        h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; }
+        
+        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: var(--spacing-md); }
+        h2 { font-size: 2rem; line-height: 1.3; margin: var(--spacing-xl) 0 var(--spacing-md); color: var(--primary-dark); }
+        h3 { font-size: 1.5rem; line-height: 1.4; margin: var(--spacing-lg) 0 var(--spacing-sm); color: var(--primary-dark); }
+        h4 { font-size: 1.2rem; line-height: 1.5; margin: var(--spacing-md) 0 var(--spacing-sm); color: var(--text-dark); }
+        
+        p { margin-bottom: var(--spacing-md); }
+        
+        a { color: var(--primary-dark); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--accent-gold); }
+        
+        strong { font-weight: 600; }
+        em { font-style: italic; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        
+        /* HEADER */
+        header {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: var(--spacing-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bg-white);
+        }
+        
+        .tagline {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+        
+        nav a {
+            color: var(--bg-white);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover { color: var(--accent-gold); }
+        
+        /* HERO */
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2E5A8F 100%);
+            color: var(--bg-white);
+            padding: var(--spacing-xxl) 0 var(--spacing-xl);
+            text-align: center;
+        }
+        
+        .about-hero h1 {
+            color: var(--bg-white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .about-hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+        }
+        
+        /* CONTENT SECTIONS */
+        .content-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .content-section:nth-child(even) {
+            background-color: var(--bg-light);
+        }
+        
+        /* COMPARISON BOX */
+        .comparison-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            background: var(--bg-light);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+        }
+        
+        .model-column h4 {
+            color: var(--primary-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        /* AUTHOR CARD */
+        .author-card {
+            background: var(--bg-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-gold);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .author-card h3 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+        
+        .author-title {
+            font-style: italic;
+            color: var(--text-gray);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* PILLARS GRID */
+        .pillars-grid {
+            display: grid;
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .pillar-item {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .pillar-item h4 {
+            color: var(--primary-dark);
+            margin-top: 0;
+        }
+        
+        /* TRANSPARENCY BOX */
+        .transparency-box {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFFBF0 100%);
+            border-left: 4px solid var(--accent-gold);
+            padding: var(--spacing-xl);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .transparency-box h3 {
+            color: var(--primary-dark);
+            margin-top: 0;
+        }
+        
+        .transparency-box h4 {
+            color: var(--primary-dark);
+            margin-top: var(--spacing-lg);
+        }
+        
+        /* QUOTE BOX */
+        .quote-box {
+            background: var(--bg-light);
+            padding: var(--spacing-xl);
+            border-left: 4px solid var(--primary-dark);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin: var(--spacing-xl) 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        
+        .quote-author {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-top: var(--spacing-md);
+            text-align: right;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: var(--bg-white); }
+        .footer-section a:hover { color: var(--accent-gold); }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-transparency-note {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: var(--accent-gold);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            html { font-size: 14px; }
+            
+            nav ul {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--spacing-md);
+            }
+            
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.7rem; }
+            h3 { font-size: 1.3rem; }
+            
+            .comparison-box {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <div class="logo">A.U.D.I.T. Protocol</div>
+                    <div class="tagline">Critical AI Literacy Framework</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="methodology.html">Methodology</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About A.U.D.I.T.</h1>
+            <p class="subtitle">The Project & the Author</p>
+        </div>
+    </section>
+
+    <!-- GENESIS -->
+    <section class="content-section">
+        <div class="container">
+            <h2>1. Genesis of the Project</h2>
+            <p>The A.U.D.I.T. Protocol emerged from a simple observation: students are using AI tools extensively, but <strong>critical thinking instruction isn't keeping pace</strong>.</p>
+            
+            <h3>The Catalyst</h3>
+            <p>As a Mathematics Education Inspector in France, I observed a widening gap:</p>
+            <ul style="margin-left: var(--spacing-lg);">
+                <li>Teachers uncertain how to address AI in their pedagogy</li>
+                <li>Students using AI without understanding its limitations</li>
+                <li>Educational discourse focused on "is AI cheating?" rather than "how do we teach critical AI use?"</li>
+            </ul>
+            
+            <p style="margin-top: var(--spacing-md);"><strong>The question shifted:</strong><br>
+            From "Should students use AI?" → "How do we equip them to use it intelligently?"</p>
+            
+            <h3>The "Columbo" Insight</h3>
+            <p>The breakthrough came from rethinking the fundamental pedagogical stance:</p>
+            
+            <div class="comparison-box">
+                <div class="model-column">
+                    <h4>Traditional Model ("Sherlock Holmes")</h4>
+                    <ul>
+                        <li>Student = investigator searching for answers</li>
+                        <li>Teacher = revealer of enigmas</li>
+                        <li>AI = threat to authentic learning</li>
+                    </ul>
+                </div>
+                
+                <div class="model-column">
+                    <h4>New Model ("Columbo")</h4>
+                    <ul>
+                        <li>Student = critical validator analyzing solutions</li>
+                        <li>Teacher = orchestrator of learning environments</li>
+                        <li>AI = imperfect tool generating testable outputs</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p>Just as Lieutenant Columbo knows the culprit from the start but must build the proof, students in the AI era often have access to answers—the challenge is <strong>validating them intelligently</strong>.</p>
+        </div>
+    </section>
+
+    <!-- AUTHOR -->
+    <section class="content-section">
+        <div class="container">
+            <h2>2. About the Author</h2>
+            
+            <div class="author-card">
+                <h3>Philippe Dupeyrat</h3>
+                <p class="author-title">Inspecteur d'Académie - Inspecteur Pédagogique Régional (IA-IPR)<br>
+                Mathematics Education Inspector, France</p>
+                
+                <h4>Professional Role</h4>
+                <p>In the French education system, an IA-IPR is responsible for:</p>
+                <ul>
+                    <li><strong>Pedagogical support:</strong> Advising teachers on instructional methods</li>
+                    <li><strong>Curriculum implementation:</strong> Disseminating national mathematics programs</li>
+                    <li><strong>Assessment support:</strong> Accompanying and evaluating examination protocols</li>
+                    <li><strong>Professional development:</strong> Training teachers in pedagogical innovation</li>
+                </ul>
+                
+                <p style="margin-top: var(--spacing-md);">This position provides both classroom proximity (through school visits and teacher collaboration) and systemic perspective (through policy contribution).</p>
+                
+                <h4>Research Interests</h4>
+                <ul>
+                    <li>Didactics of mathematics in technological contexts</li>
+                    <li>Critical thinking education across disciplines</li>
+                    <li>AI literacy as fundamental civic competency</li>
+                    <li>Teacher professional development for technology integration</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATIONAL APPROACH -->
+    <section class="content-section">
+        <div class="container">
+            <h2>3. Educational Approach</h2>
+            <p>This educational approach rests on three pillars:</p>
+            
+            <div class="pillars-grid">
+                <div class="pillar-item">
+                    <h4>1. Student Agency</h4>
+                    <p>Learning happens when students discover, not when they're told. The A.U.D.I.T. sequences embody this: students set traps, observe failures, draw conclusions.</p>
+                </div>
+                
+                <div class="pillar-item">
+                    <h4>2. Intellectual Honesty</h4>
+                    <p>Don't tell students "AI is dangerous" or "AI is magical." Give them tools to <strong>evaluate for themselves</strong>. Critical thinking beats moralizing.</p>
+                </div>
+                
+                <div class="pillar-item">
+                    <h4>3. Adaptability</h4>
+                    <p>Technology changes; pedagogical principles endure. The "Columbo" stance—critical validation over passive reception—transcends specific tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSPARENCY NOTE -->
+    <section class="content-section">
+        <div class="container">
+            <div class="transparency-box">
+                <h3>4. Transparency Note ⭐</h3>
+                
+                <h4>AI in Creating This Resource</h4>
+                <p>In keeping with the protocol's emphasis on <strong>transparency and critical thinking</strong>, I must note:</p>
+                
+                <p><strong>This website (including English translations) was created with assistance from AI tools.</strong> Specifically:</p>
+                <ul>
+                    <li>English translation: AI-assisted with human review</li>
+                    <li>Website development: AI code generation with human oversight</li>
+                    <li>Content organization: Collaborative human-AI process</li>
+                </ul>
+                
+                <h4>Why mention this?</h4>
+                <p>Because the A.U.D.I.T. Protocol teaches students to:</p>
+                <ol>
+                    <li>Be transparent about AI use</li>
+                    <li>Validate AI outputs critically</li>
+                    <li>Take responsibility for final content</li>
+                </ol>
+                
+                <p style="margin-top: var(--spacing-md);"><strong>"Practice what you preach"</strong> is core to credibility. Using AI to create resources about AI literacy—while being explicit about that use—models the very behavior we want students to develop.</p>
+                
+                <p><strong>The final content reflects human decisions, expertise, and responsibility. AI was a tool, not the author.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERNATIONAL SHARING -->
+    <section class="content-section">
+        <div class="container">
+            <h2>5. International Sharing & Collaboration</h2>
+            
+            <h3>Why Share Internationally?</h3>
+            <p>This protocol was developed within the French education system, but <strong>critical AI literacy is a global need</strong>. Students worldwide face the same challenge: abundant access to AI-generated content without corresponding critical evaluation skills.</p>
+            
+            <h3>What's Transferable</h3>
+            <ul style="margin-left: var(--spacing-lg);">
+                <li><strong>The "Columbo" mindset:</strong> Applicable across cultures and education systems</li>
+                <li><strong>The A.U.D.I.T. framework:</strong> Analyze, Use knowledge, Doubt, Interrogate, Test</li>
+                <li><strong>The experimentation pedagogy:</strong> Students discover rather than being lectured</li>
+                <li><strong>The sequence structure:</strong> Adaptable to different subjects and age groups</li>
+            </ul>
+            
+            <h3>Invitation to Collaborate</h3>
+            
+            <h4>International Teachers Welcome</h4>
+            <p>If you're implementing A.U.D.I.T. in your educational context:</p>
+            <ul style="margin-left: var(--spacing-lg);">
+                <li><strong>Share your adaptations:</strong> How did you modify for your students?</li>
+                <li><strong>Report your experiences:</strong> What worked? What needed adjustment?</li>
+                <li><strong>Contribute examples:</strong> Local scenarios that reveal AI limitations?</li>
+            </ul>
+            
+            <h4>Academic Collaboration</h4>
+            <p>For researchers interested in:</p>
+            <ul style="margin-left: var(--spacing-lg);">
+                <li><strong>Implementation studies:</strong> Classroom research on A.U.D.I.T. effectiveness</li>
+                <li><strong>Comparative analysis:</strong> How does critical AI literacy develop across contexts?</li>
+                <li><strong>Theoretical extension:</strong> Building on the "Columbo" framework</li>
+            </ul>
+            
+            <p style="margin-top: var(--spacing-md);"><strong>Open to:</strong> Co-authored publications, conference presentations, research partnerships</p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="content-section">
+        <div class="container">
+            <h2>6. Contact</h2>
+            
+            <h3>Questions About the Protocol?</h3>
+            <ul style="margin-left: var(--spacing-lg);">
+                <li>Implementation guidance</li>
+                <li>Adaptation suggestions</li>
+                <li>Collaboration proposals</li>
+            </ul>
+            
+            <h3>Want to Share Your Experience?</h3>
+            <ul style="margin-left: var(--spacing-lg);">
+                <li>Classroom observations</li>
+                <li>Student responses</li>
+                <li>Modified materials</li>
+                <li>Cultural adaptations</li>
+            </ul>
+            
+            <h3>Interested in Research Collaboration?</h3>
+            <ul style="margin-left: var(--spacing-lg);">
+                <li>Comparative studies</li>
+                <li>Effectiveness analysis</li>
+                <li>Theoretical extension</li>
+            </ul>
+            
+            <p style="margin-top: var(--spacing-lg);"><strong>Email:</strong> <a href="mailto:philippe.dupeyrat@icloud.com">philippe.dupeyrat@icloud.com</a></p>
+            <p><strong>French Resources:</strong> <a href="https://philipped79.github.io/audit-ia" target="_blank">philipped79.github.io/audit-ia</a></p>
+        </div>
+    </section>
+
+    <!-- PEDAGOGICAL FIELD RESEARCH -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Pedagogical Field Research</h2>
+            <p>The A.U.D.I.T. Protocol isn't just a pedagogical tool—it's a <strong>statement about education in the AI era:</strong></p>
+            
+            <ul style="margin: var(--spacing-lg) 0; margin-left: var(--spacing-lg);">
+                <li><strong>We don't reject technology</strong> (unrealistic and counterproductive)</li>
+                <li><strong>We don't embrace it uncritically</strong> (dangerous and naive)</li>
+                <li><strong>We equip students to navigate it intelligently</strong> (empowering and essential)</li>
+            </ul>
+            
+            <p>This middle path—<strong>critical engagement</strong>—is harder than extremes. It requires teachers to:</p>
+            <ul style="margin-left: var(--spacing-lg);">
+                <li>Understand AI capabilities and limitations</li>
+                <li>Model critical thinking themselves</li>
+                <li>Trust students to discover rather than dictate answers</li>
+                <li>Admit uncertainty while maintaining pedagogical authority</li>
+            </ul>
+            
+            <p style="margin-top: var(--spacing-md);">It's ambitious. But our students deserve nothing less.</p>
+            
+            <div class="quote-box" style="margin-top: var(--spacing-xl);">
+                "The goal isn't to make students fear AI or worship it, but to make them intelligent partners in its use. The 'Columbo Teacher' doesn't provide answers—they cultivate the critical mindset to validate them."
+                <div class="quote-author">— Philippe Dupeyrat</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>A.U.D.I.T. Protocol</h3>
+                    <p>Critical AI Literacy Framework for Secondary Education</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="methodology.html">Methodology</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="The_Columbo_Teacher_Full_Article.pdf" download>Full Article (PDF)</a></li>
+                        <li><a href="https://philipped79.github.io/audit-ia" target="_blank">French Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>License</h3>
+                    <p>CC BY-NC-SA 4.0</p>
+                    <p>Non-commercial educational use</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Philippe Dupeyrat. All rights reserved.</p>
+                <p class="footer-transparency-note">This site was created with the assistance of AI—practicing the critical evaluation we teach.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

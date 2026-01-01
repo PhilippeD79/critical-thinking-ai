@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A.U.D.I.T. Protocol pedagogical resources - four teaching sequences for critical AI literacy in secondary education.">
+    <title>Resources - A.U.D.I.T. Protocol</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS VARIABLES */
+        :root {
+            --primary-dark: #1E3A5F;
+            --accent-gold: #D4A847;
+            --bg-white: #FFFFFF;
+            --bg-light: #F5F7FA;
+            --text-dark: #2C3E50;
+            --text-gray: #5A6C7D;
+            --border-light: #E1E8ED;
+            
+            --font-serif: 'Source Serif 4', Georgia, serif;
+            --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+            
+            --border-radius: 8px;
+        }
+        
+        /* GLOBAL STYLES */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { font-size: 16px; scroll-behavior: smooth; }        
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-color: var(--bg-white);
+        }
+        
+        h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; }
+        
+        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: var(--spacing-md); }
+        h2 { font-size: 2rem; line-height: 1.3; margin: var(--spacing-xl) 0 var(--spacing-md); color: var(--primary-dark); }
+        h3 { font-size: 1.5rem; line-height: 1.4; margin: var(--spacing-lg) 0 var(--spacing-sm); color: var(--primary-dark); }
+        h4 { font-size: 1.2rem; line-height: 1.5; margin: var(--spacing-md) 0 var(--spacing-sm); color: var(--text-dark); }
+        
+        p { margin-bottom: var(--spacing-md); }
+        
+        a { color: var(--primary-dark); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--accent-gold); }
+        
+        strong { font-weight: 600; }
+        em { font-style: italic; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        
+        /* HEADER */
+        header {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: var(--spacing-md) 0;            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bg-white);
+        }
+        
+        .tagline {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+        
+        nav a {
+            color: var(--bg-white);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover { color: var(--accent-gold); }        
+        /* HERO */
+        .resources-hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2E5A8F 100%);
+            color: var(--bg-white);
+            padding: var(--spacing-xxl) 0 var(--spacing-xl);
+            text-align: center;
+        }
+        
+        .resources-hero h1 {
+            color: var(--bg-white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .resources-hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+        }
+        
+        /* CONTENT SECTIONS */
+        .content-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .content-section:nth-child(even) {
+            background-color: var(--bg-light);
+        }
+        
+        /* SEQUENCE CARDS */
+        .sequences-grid {
+            display: grid;
+            gap: var(--spacing-xl);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .sequence-card {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-gold);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .sequence-card h3 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+        
+        .sequence-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-md);
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+        
+        .sequence-meta span {
+            background-color: var(--bg-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+        }
+        
+        /* INFO BOX */
+        .info-box {
+            background-color: #FFF9E6;
+            border-left: 4px solid var(--accent-gold);
+            padding: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .info-box strong {
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        /* COMPARISON TABLE */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .comparison-item {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .comparison-item h4 {
+            color: var(--primary-dark);
+            margin-top: 0;
+        }
+        
+        /* TIMELINE BOXES */
+        .timeline-grid {
+            display: grid;
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .timeline-item {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .timeline-item h4 {
+            color: var(--primary-dark);
+            margin-top: 0;
+        }
+        
+        /* CTA BOX */
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2E5A8F 100%);
+            color: var(--bg-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .cta-box h3 {
+            color: var(--accent-gold);
+            margin-top: 0;
+        }
+        
+        .cta-button {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: var(--spacing-md);
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #c49635;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 168, 71, 0.3);
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: var(--bg-white); }
+        .footer-section a:hover { color: var(--accent-gold); }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .transparency-note {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: var(--accent-gold);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            html { font-size: 14px; }
+            
+            nav ul {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--spacing-md);
+            }
+            
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.7rem; }
+            h3 { font-size: 1.3rem; }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <div class="logo">A.U.D.I.T. Protocol</div>
+                    <div class="tagline">Critical AI Literacy Framework</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="methodology.html">Methodology</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="resources-hero">
+        <div class="container">
+            <h1>Pedagogical Resources</h1>
+            <p class="subtitle">Teaching Materials & Implementation Guide</p>
+        </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Overview</h2>
+            <p>The A.U.D.I.T. Protocol consists of four core sequences designed for secondary education (ages 12-18). Each sequence is available in versions adapted for both middle school and high school students, with differentiated complexity and cognitive demands.</p>
+            
+            <div class="info-box">
+                <strong>Important Note</strong>
+                <p>Complete detailed resources (student worksheets, teacher guides, assessment rubrics, and downloadable PDFs) are currently available in French. This page provides an overview of the pedagogical approach and structure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOUR SEQUENCES -->
+    <section class="content-section">
+        <div class="container">
+            <h2>The Four Sequences</h2>
+            
+            <div class="sequences-grid">
+                <!-- SEQUENCE 01 -->
+                <div class="sequence-card">
+                    <h3>Sequence 01: Detecting AI Writing Style</h3>
+                    <div class="sequence-meta">
+                        <span>⏱️ Duration: 45-60 minutes</span>
+                        <span>📚 Level: Middle & High School</span>
+                        <span>🎯 Core Skill: Pattern recognition</span>
+                    </div>
+                    
+                    <h4>What students do:</h4>
+                    <ul>
+                        <li>Generate texts using AI on a given topic</li>
+                        <li>Analyze multiple AI outputs to identify recurring patterns</li>
+                        <li>Create a "checklist" of AI writing tics</li>
+                        <li>Apply this checklist to mystery texts (human vs. AI)</li>
+                    </ul>
+                    
+                    <h4>Why it matters:</h4>
+                    <p>Students develop a practical ability to recognize AI-generated content, understanding that AI has distinctive stylistic "fingerprints" even when mimicking human writing.</p>
+                    
+                    <h4>Teacher focus:</h4>
+                    <p>Guide students toward discovery rather than lecturing. The power comes from students identifying patterns themselves.</p>
+                </div>
+                
+                <!-- SEQUENCE 02 -->
+                <div class="sequence-card">
+                    <h3>Sequence 02: Can AI Lie? Setting Traps</h3>
+                    <div class="sequence-meta">
+                        <span>⏱️ Duration: 60-90 minutes</span>
+                        <span>📚 Level: Middle & High School</span>
+                        <span>🎯 Core Skill: Fact-checking</span>
+                    </div>
+                    
+                    <h4>What students do:</h4>
+                    <ul>
+                        <li>Design "trap prompts" to make AI assert falsehoods</li>
+                        <li>Test different categories: impossible facts, logical contradictions, pseudo-science</li>
+                        <li>Document AI's confident falsehoods</li>
+                        <li>Develop verification strategies</li>
+                    </ul>
+                    
+                    <h4>Why it matters:</h4>
+                    <p>Students discover firsthand that AI can "hallucinate" facts with complete confidence. This visceral experience is far more powerful than being told "AI isn't always accurate."</p>
+                    
+                    <h4>Teacher focus:</h4>
+                    <p>Safety in intellectual risk-taking. Students should feel free to experiment without judgment. The goal is discovery, not getting "right answers."</p>
+                </div>
+                
+                <!-- SEQUENCE 03 -->
+                <div class="sequence-card">
+                    <h3>Sequence 03: Becoming an AI Pilot - Understanding Reasoning vs. Prediction</h3>
+                    <div class="sequence-meta">
+                        <span>⏱️ Duration: 90-120 minutes</span>
+                        <span>📚 Level: Middle & High School</span>
+                        <span>🎯 Core Skill: Understanding AI fundamentals</span>
+                    </div>
+                    
+                    <h4>What students do:</h4>
+                    <ul>
+                        <li>Test AI with logical reasoning tasks (syllogisms, mathematical proof)</li>
+                        <li>Observe AI's pattern-matching vs. logical reasoning</li>
+                        <li>Understand the difference between prediction and reasoning</li>
+                        <li>Create personal AI usage charters</li>
+                    </ul>
+                    
+                    <h4>Why it matters:</h4>
+                    <p>Students grasp the fundamental limitation—AI predicts next words, it doesn't "think." This understanding empowers better tool use.</p>
+                    
+                    <h4>Teacher focus:</h4>
+                    <p>The charter creation is crucial. Let students develop their own rules based on discoveries. Autonomy is the goal.</p>
+                </div>
+                
+                <!-- SEQUENCE 04 -->
+                <div class="sequence-card">
+                    <h3>Sequence 04: Detecting Bias</h3>
+                    <div class="sequence-meta">
+                        <span>⏱️ Duration: 60-90 minutes</span>
+                        <span>📚 Level: Middle & High School</span>
+                        <span>🎯 Core Skill: Critical awareness</span>
+                    </div>
+                    
+                    <h4>What students do:</h4>
+                    <ul>
+                        <li>Generate images or scenarios across demographic categories</li>
+                        <li>Identify stereotypical patterns in AI outputs</li>
+                        <li>Understand how training data shapes outputs</li>
+                        <li>Develop strategies for bias-aware AI use</li>
+                    </ul>
+                    
+                    <h4>Why it matters:</h4>
+                    <p>Students recognize that AI reflects and can amplify societal biases. This creates critical consumers of AI, not passive acceptors.</p>
+                    
+                    <h4>Teacher focus:</h4>
+                    <p>Handle sensitively. This sequence touches on representation, stereotypes, and fairness. Create a safe space for honest discussion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PEDAGOGICAL APPROACH -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Pedagogical Approach: The "Columbo Philosophy"</h2>
+            <p>All sequences share a common methodology:</p>
+            
+            <div class="sequences-grid">
+                <div class="sequence-card">
+                    <h4>1. Experimentation First</h4>
+                    <p>Students discover AI limitations through direct experience, not lectures. The teacher orchestrates experiments, not explanations.</p>
+                </div>
+                
+                <div class="sequence-card">
+                    <h4>2. From Observation to Abstraction</h4>
+                    <p>Students move from concrete cases ("Look, this AI output is wrong!") to general principles ("AI can hallucinate facts").</p>
+                </div>
+                
+                <div class="sequence-card">
+                    <h4>3. Student-Generated Guidelines</h4>
+                    <p>Rather than imposing rules, students create their own based on discoveries. Ownership creates adherence.</p>
+                </div>
+                
+                <div class="sequence-card">
+                    <h4>4. Iterative Refinement</h4>
+                    <p>Sequences are designed to be adapted. Teachers should modify based on student responses and local context.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFFERENTIATION -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Differentiation: Middle School vs. High School</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h4>Middle School Version (Ages 12-15)</h4>
+                    <ul>
+                        <li><strong>Shorter duration:</strong> 45-60 minute activities</li>
+                        <li><strong>Simpler vocabulary:</strong> Avoid technical jargon</li>
+                        <li><strong>More scaffolding:</strong> Structured worksheets with clear steps</li>
+                        <li><strong>Concrete examples:</strong> Topics relevant to daily student life</li>
+                        <li><strong>Visual aids:</strong> More images, fewer long texts</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-item">
+                    <h4>High School Version (Ages 15-18)</h4>
+                    <ul>
+                        <li><strong>Extended exploration:</strong> 60-120 minute sequences</li>
+                        <li><strong>Technical depth:</strong> Introduce terms like "hallucination," "bias," "training data"</li>
+                        <li><strong>Greater autonomy:</strong> Open-ended investigation with less scaffolding</li>
+                        <li><strong>Abstract concepts:</strong> Engage with epistemological questions</li>
+                        <li><strong>Metacognitive focus:</strong> Explicit reflection on learning process</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPLEMENTATION TIMELINE -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Implementation Timeline</h2>
+            
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <h4>Minimal Implementation (One Sequence)</h4>
+                    <p><strong>Duration:</strong> 1 class period (45-90 minutes)</p>
+                    <p><strong>Impact:</strong> Introduction to AI critical thinking</p>
+                    <p><strong>Recommended:</strong> Sequence 02 (trap-setting) for immediate engagement</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Standard Implementation (Full Protocol)</h4>
+                    <p><strong>Duration:</strong> 4 class periods over 2-4 weeks</p>
+                    <p><strong>Impact:</strong> Complete A.U.D.I.T. framework</p>
+                    <p><strong>Recommended:</strong> Sequential order (01 → 02 → 03 → 04)</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Extended Implementation (With Follow-Up)</h4>
+                    <p><strong>Duration:</strong> Initial 4 periods + ongoing integration</p>
+                    <p><strong>Impact:</strong> Embedded critical AI literacy across curriculum</p>
+                    <p><strong>Recommended:</strong> Return to A.U.D.I.T. framework whenever using AI tools</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MATERIALS & ASSESSMENT -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Materials Needed</h2>
+            
+            <h3>Technology Requirements</h3>
+            <ul>
+                <li><strong>Essential:</strong> Internet access, AI tool access (ChatGPT, Claude, etc.)</li>
+                <li><strong>Optimal:</strong> One device per student or small groups</li>
+                <li><strong>Alternative:</strong> Teacher-led demonstrations with class discussion</li>
+            </ul>
+            
+            <h3>Physical Materials</h3>
+            <ul>
+                <li>Student worksheets (available in French, templates adaptable)</li>
+                <li>Teacher guides (available in French)</li>
+                <li>Observation grids for formative assessment</li>
+                <li>Poster/board for creating collective AI usage charters</li>
+            </ul>
+            
+            <h2>Assessment Strategies</h2>
+            
+            <h3>Formative Assessment (During Sequences)</h3>
+            <ul>
+                <li><strong>Observation:</strong> Teacher circulates, notes student discoveries</li>
+                <li><strong>Class discussion:</strong> Gauge depth of understanding</li>
+                <li><strong>Quick writes:</strong> "What surprised you today?"</li>
+                <li><strong>Peer comparison:</strong> Students share findings in pairs/groups</li>
+            </ul>
+            
+            <h3>Summative Assessment (End of Protocol)</h3>
+            <ul>
+                <li><strong>AI Audit Report:</strong> Students analyze an AI output using A.U.D.I.T. framework</li>
+                <li><strong>Usage Charter:</strong> Student-created guidelines (rubric-assessed)</li>
+                <li><strong>Transfer Task:</strong> Apply critical thinking to new AI scenario</li>
+                <li><strong>Self-Reflection:</strong> Metacognitive essay on learning</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ADAPTATION -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Adaptation Guidelines</h2>
+            
+            <h3>Cross-Disciplinary Use</h3>
+            <p>While developed for mathematics, A.U.D.I.T. applies across subjects:</p>
+            <ul>
+                <li><strong>Language Arts:</strong> Analyzing AI-generated essays, poetry, stories</li>
+                <li><strong>Sciences:</strong> Evaluating AI explanations of scientific concepts</li>
+                <li><strong>History:</strong> Fact-checking AI historical claims</li>
+                <li><strong>Arts:</strong> Understanding AI image generation and authorship</li>
+            </ul>
+            
+            <h3>Cultural Adaptation</h3>
+            <p>The protocol is designed to be culturally transferable:</p>
+            <ul>
+                <li>Replace French examples with locally relevant scenarios</li>
+                <li>Adjust references to educational system (Middle/High School vs. Collège/Lycée)</li>
+                <li>Maintain core principle: experimentation over lecturing</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FRENCH RESOURCES CTA -->
+    <section class="content-section">
+        <div class="container">
+            <div class="cta-box">
+                <h3>Complete French Resources</h3>
+                <p>For teachers comfortable in French or with translation tools, the complete resource package includes:</p>
+                <ul style="text-align: left; max-width: 600px; margin: var(--spacing-md) auto;">
+                    <li>Detailed worksheets for all 4 sequences (Middle & High School versions)</li>
+                    <li>Comprehensive teacher guides with pedagogical notes</li>
+                    <li>Assessment rubrics and observation grids</li>
+                    <li>Downloadable print-ready PDFs</li>
+                </ul>
+                <a href="https://philipped79.github.io/audit-ia" class="cta-button" target="_blank">Access French Resources →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Support & Community</h2>
+            
+            <h3>Questions or Adaptations?</h3>
+            <p>If you're implementing A.U.D.I.T. in an international context and need guidance:</p>
+            <ul>
+                <li><strong>Email:</strong> philippe.dupeyrat@icloud.com</li>
+                <li><strong>Sharing:</strong> Teachers who adapt materials are encouraged to share their versions</li>
+            </ul>
+            
+            <h3>Feedback Welcome</h3>
+            <p>These sequences evolve based on classroom experience. If you test them:</p>
+            <ul>
+                <li>What worked well?</li>
+                <li>What needed modification?</li>
+                <li>How did students respond?</li>
+            </ul>
+            <p>Your observations help refine the protocol for international use.</p>
+        </div>
+    </section>
+
+    <!-- FUTURE DEVELOPMENTS -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Future Developments</h2>
+            
+            <h3>Potential Expansions</h3>
+            <ul>
+                <li><strong>English language worksheets:</strong> Translation of complete materials</li>
+                <li><strong>Video tutorials:</strong> Demonstrating sequence implementation</li>
+                <li><strong>Additional sequences:</strong> New critical thinking scenarios</li>
+                <li><strong>International case studies:</strong> Examples from diverse educational contexts</li>
+            </ul>
+            
+            <p><strong>Timeline:</strong> Based on user interest and feedback</p>
+        </div>
+    </section>
+
+    <!-- KEY TAKEAWAY -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Key Takeaway</h2>
+            <p>The A.U.D.I.T. Protocol isn't about memorizing rules—it's about <strong>developing a critical mindset</strong>. Students who complete these sequences don't just learn "AI can be wrong." They learn to:</p>
+            
+            <ul style="margin: var(--spacing-lg) 0;">
+                <li>✓ Systematically analyze machine outputs</li>
+                <li>✓ Verify using external knowledge</li>
+                <li>✓ Maintain healthy skepticism</li>
+                <li>✓ Test boundaries through experimentation</li>
+                <li>✓ Validate conclusions independently</li>
+            </ul>
+            
+            <p><strong>This is the "Columbo" stance—critical validator, not passive receiver.</strong></p>
+            
+            <div style="margin-top: var(--spacing-xl); padding: var(--spacing-lg); background-color: var(--bg-light); border-radius: var(--border-radius); text-align: center;">
+                <p style="margin-bottom: var(--spacing-md);"><strong>Ready to implement?</strong></p>
+                <p>Start with Sequence 02 (trap-setting) for immediate student engagement, or proceed sequentially through all four for complete critical AI literacy development.</p>
+                <p style="margin-top: var(--spacing-md);"><strong>Questions?</strong> Contact: <a href="mailto:philippe.dupeyrat@icloud.com">philippe.dupeyrat@icloud.com</a></p>
+                <p><strong>Full materials</strong> (French): <a href="https://philipped79.github.io/audit-ia" target="_blank">philipped79.github.io/audit-ia</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>A.U.D.I.T. Protocol</h3>
+                    <p>Critical AI Literacy Framework for Secondary Education</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="methodology.html">Methodology</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="The_Columbo_Teacher_Full_Article.pdf" download>Full Article (PDF)</a></li>
+                        <li><a href="https://philipped79.github.io/audit-ia" target="_blank">French Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>License</h3>
+                    <p>CC BY-NC-SA 4.0</p>
+                    <p>Non-commercial educational use</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Philippe Dupeyrat. All rights reserved.</p>
+                <p class="transparency-note">This site was created with the assistance of AI—practicing the critical evaluation we teach.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

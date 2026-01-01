@@ -1,0 +1,17 @@
+# Fichiers temporaires
+*.tmp
+*.bak
+*_PREVIEW_FR.md
+DEMO_FULL.html
+STATUS_SESSION_*.md
+TODO.md
+QUICKSTART.md
+RECAP_SESSION.md
+00_*.md
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Dossiers
+VERSIONS/

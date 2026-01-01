@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Philippe Dupeyrat about A.U.D.I.T. Protocol - collaboration, questions, adaptations, and research partnerships.">
+    <title>Contact - A.U.D.I.T. Protocol</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS VARIABLES */
+        :root {
+            --primary-dark: #1E3A5F;
+            --accent-gold: #D4A847;
+            --bg-white: #FFFFFF;
+            --bg-light: #F5F7FA;
+            --text-dark: #2C3E50;
+            --text-gray: #5A6C7D;
+            --border-light: #E1E8ED;
+            
+            --font-serif: 'Source Serif 4', Georgia, serif;
+            --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+            
+            --border-radius: 8px;
+        }
+        
+        /* GLOBAL STYLES */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { font-size: 16px; scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-color: var(--bg-white);
+        }        
+        h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; }
+        
+        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: var(--spacing-md); }
+        h2 { font-size: 2rem; line-height: 1.3; margin: var(--spacing-xl) 0 var(--spacing-md); color: var(--primary-dark); }
+        h3 { font-size: 1.5rem; line-height: 1.4; margin: var(--spacing-lg) 0 var(--spacing-sm); color: var(--primary-dark); }
+        h4 { font-size: 1.2rem; line-height: 1.5; margin: var(--spacing-md) 0 var(--spacing-sm); color: var(--text-dark); }
+        
+        p { margin-bottom: var(--spacing-md); }
+        
+        a { color: var(--primary-dark); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--accent-gold); }
+        
+        strong { font-weight: 600; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        
+        /* HEADER */
+        header {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: var(--spacing-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bg-white);
+        }
+        
+        .tagline {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+        
+        nav a {
+            color: var(--bg-white);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover { color: var(--accent-gold); }
+        
+        /* HERO */
+        .contact-hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2E5A8F 100%);
+            color: var(--bg-white);
+            padding: var(--spacing-xxl) 0 var(--spacing-xl);
+            text-align: center;
+        }
+        
+        .contact-hero h1 {
+            color: var(--bg-white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .contact-hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+        }
+        
+        /* CONTENT SECTIONS */
+        .content-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .content-section:nth-child(even) {
+            background-color: var(--bg-light);
+        }
+        
+        /* AUDIENCE CARDS */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .audience-card {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-gold);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .audience-card h3 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+        
+        /* CONTACT BOX */
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2E5A8F 100%);
+            color: var(--bg-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .contact-box h2 {
+            color: var(--accent-gold);
+            margin-top: 0;
+        }
+        
+        .email-link {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .email-link:hover {
+            color: var(--bg-white);
+        }
+        
+        /* INFO BOX */
+        .info-box {
+            background-color: #FFF9E6;
+            border-left: 4px solid var(--accent-gold);
+            padding: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.5rem; }
+        .footer-section a { color: var(--bg-white); }
+        .footer-section a:hover { color: var(--accent-gold); }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-transparency-note {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: var(--accent-gold);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            html { font-size: 14px; }
+            
+            nav ul {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--spacing-md);
+            }
+            
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.7rem; }
+            h3 { font-size: 1.3rem; }
+            
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <div class="logo">A.U.D.I.T. Protocol</div>
+                    <div class="tagline">Critical AI Literacy Framework</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="methodology.html">Methodology</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Contact & Collaboration</h1>
+            <p class="subtitle">Get in Touch</p>
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="content-section">
+        <div class="container">
+            <p style="font-size: 1.1rem; text-align: center; max-width: 800px; margin: 0 auto;">Whether you're a teacher implementing A.U.D.I.T., a researcher interested in collaboration, or simply curious about critical AI literacy—<strong>your perspectives are valuable</strong>.</p>
+        </div>
+    </section>
+
+    <!-- AUDIENCE CARDS -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Who Are You?</h2>
+            
+            <div class="audience-grid">
+                <!-- TEACHERS -->
+                <div class="audience-card">
+                    <h3>For Teachers</h3>
+                    <h4>Implementing the Protocol?</h4>
+                    <p><strong>I'd love to hear:</strong></p>
+                    <ul>
+                        <li>What worked well in your classroom?</li>
+                        <li>What needed modification for your context?</li>
+                        <li>How did students respond?</li>
+                        <li>What adaptations did you make?</li>
+                    </ul>
+                    <p style="margin-top: var(--spacing-md);">Your observations help refine the protocol and inform future resources.</p>
+                    
+                    <h4 style="margin-top: var(--spacing-lg);">Questions About Implementation?</h4>
+                    <p><strong>Typical inquiries:</strong></p>
+                    <ul>
+                        <li>"Which sequence should I start with?"</li>
+                        <li>"How do I adapt for my grade level?"</li>
+                        <li>"What if I don't have one-to-one devices?"</li>
+                        <li>"How do I assess student learning?"</li>
+                    </ul>
+                </div>
+                
+                <!-- RESEARCHERS -->
+                <div class="audience-card">
+                    <h3>For Researchers</h3>
+                    <h4>Interested in Studying A.U.D.I.T.?</h4>
+                    <p><strong>Potential research directions:</strong></p>
+                    <ul>
+                        <li>Classroom implementation studies</li>
+                        <li>Comparative analysis across educational systems</li>
+                        <li>Effectiveness measurement</li>
+                        <li>Long-term impact on student AI use</li>
+                        <li>Cross-cultural adaptation</li>
+                    </ul>
+                    
+                    <p style="margin-top: var(--spacing-md);"><strong>Open to:</strong></p>
+                    <ul>
+                        <li>Research partnerships</li>
+                        <li>Co-authored publications</li>
+                        <li>Conference presentations</li>
+                        <li>Data sharing (within ethical guidelines)</li>
+                    </ul>
+                </div>
+                
+                <!-- EDUCATIONAL LEADERS -->
+                <div class="audience-card">
+                    <h3>For Educational Leaders</h3>
+                    <h4>Considering System-Wide Implementation?</h4>
+                    <p><strong>Available support:</strong></p>
+                    <ul>
+                        <li>Professional development workshops</li>
+                        <li>Curriculum integration guidance</li>
+                        <li>Assessment framework alignment</li>
+                        <li>Teacher training resources</li>
+                    </ul>
+                    
+                    <p style="margin-top: var(--spacing-md);"><strong>Scalability:</strong> The protocol is designed for flexible implementation—from individual classroom experiments to district-wide adoption.</p>
+                </div>
+                
+                <!-- INTERNATIONAL COLLABORATORS -->
+                <div class="audience-card">
+                    <h3>For International Collaborators</h3>
+                    <h4>Adapting for Your Context?</h4>
+                    <p><strong>Especially interested in:</strong></p>
+                    <ul>
+                        <li>Non-Francophone implementations</li>
+                        <li>Diverse educational systems</li>
+                        <li>Cultural adaptation examples</li>
+                        <li>Translated materials (if you create them)</li>
+                    </ul>
+                    
+                    <p style="margin-top: var(--spacing-md);"><strong>Vision:</strong> A global community of educators developing critical AI literacy across contexts while respecting local cultural and pedagogical differences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT BOX -->
+    <section class="content-section">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Contact Information</h2>
+                <p style="font-size: 1.1rem; margin-bottom: var(--spacing-md);">Email is the best way to reach me:</p>
+                
+                <a href="#" class="email-link" id="email-link">
+                    <noscript>Enable JavaScript to see email address</noscript>
+                </a>
+                
+                <script>
+                (function() {
+                    var parts = ['philippe.dupeyrat', 'icloud.com'];
+                    var email = parts[0] + '@' + parts[1];
+                    var link = document.getElementById('email-link');
+                    link.href = 'mailto:' + email;
+                    link.textContent = email;
+                })();
+                </script>
+                
+                <p style="margin-top: var(--spacing-lg);"><strong>Response time:</strong> I aim to respond within 1-2 weeks. As an active education inspector, I balance multiple responsibilities—thank you for patience.</p>
+                
+                <p><strong>Language:</strong> Correspondence welcome in French or English (though French responses may be faster).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT TO INCLUDE -->
+    <section class="content-section">
+        <div class="container">
+            <h2>What to Include in Your Message</h2>
+            <p>To help me provide the most useful response:</p>
+            
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <h4>If You're a Teacher</h4>
+                    <ul>
+                        <li>Your grade level / student age</li>
+                        <li>Subject area</li>
+                        <li>Which sequence(s) you've tried or plan to try</li>
+                        <li>Specific questions or challenges</li>
+                        <li>Your educational context (country, school type)</li>
+                    </ul>
+                </div>
+                
+                <div class="audience-card">
+                    <h4>If You're a Researcher</h4>
+                    <ul>
+                        <li>Your research focus</li>
+                        <li>Institutional affiliation</li>
+                        <li>Proposed collaboration or study</li>
+                        <li>Timeline considerations</li>
+                    </ul>
+                </div>
+                
+                <div class="audience-card">
+                    <h4>If You're an Educational Leader</h4>
+                    <ul>
+                        <li>Scope of implementation (classroom, school, district)</li>
+                        <li>Professional development needs</li>
+                        <li>Assessment integration questions</li>
+                        <li>Timeline and support requirements</li>
+                    </ul>
+                </div>
+                
+                <div class="audience-card">
+                    <h4>If You've Adapted Materials</h4>
+                    <ul>
+                        <li>Translated worksheets (any language)</li>
+                        <li>Culturally adapted scenarios</li>
+                        <li>Subject-specific variations</li>
+                        <li>Assessment tools</li>
+                        <li>Visual aids or presentation materials</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHARING ADAPTATIONS -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Sharing Your Adaptations</h2>
+            <p>If you've created modified materials, <strong>I'm interested in:</strong></p>
+            <ul style="margin-left: var(--spacing-lg);">
+                <li>Translated worksheets (any language)</li>
+                <li>Culturally adapted scenarios</li>
+                <li>Subject-specific variations (beyond mathematics)</li>
+                <li>Assessment tools</li>
+                <li>Visual aids or presentation materials</li>
+            </ul>
+            
+            <div class="info-box" style="margin-top: var(--spacing-lg);">
+                <strong>Credit & Attribution:</strong> Any shared materials remain your intellectual property. If incorporated into the main resource, you'll be credited as contributor.
+            </div>
+        </div>
+    </section>
+
+    <!-- FEEDBACK ON MATERIALS -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Feedback on These English Materials</h2>
+            <p>This English-language overview is the first step toward international accessibility. <strong>Your feedback matters:</strong></p>
+            <ul style="margin-left: var(--spacing-lg);">
+                <li>What information is missing?</li>
+                <li>What needs clearer explanation?</li>
+                <li>What would make implementation easier?</li>
+                <li>Should certain French resources be prioritized for translation?</li>
+            </ul>
+            
+            <p style="margin-top: var(--spacing-md);">User input directly shapes future development priorities.</p>
+        </div>
+    </section>
+
+    <!-- PRIVACY NOTE -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Privacy Note</h2>
+            
+            <h3>Email Correspondence</h3>
+            <p>I treat all educator inquiries as professional communication. I do not:</p>
+            <ul style="margin-left: var(--spacing-lg);">
+                <li>Share your contact information without permission</li>
+                <li>Publish classroom experiences without explicit consent</li>
+                <li>Use student data (don't send student work without anonymization)</li>
+            </ul>
+            
+            <h3>Research Collaboration</h3>
+            <p>Any data collection follows standard academic ethics protocols with institutional review.</p>
+        </div>
+    </section>
+
+    <!-- FRENCH RESOURCES LINK -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Full French Resources</h2>
+            <p>For those comfortable in French or using translation tools:</p>
+            <p style="font-size: 1.1rem; margin-top: var(--spacing-md);"><strong>Complete materials</strong> (student worksheets, teacher guides, assessment tools):<br>
+            <a href="https://philipped79.github.io/audit-ia" target="_blank" style="color: var(--accent-gold); font-weight: 600;">philipped79.github.io/audit-ia</a></p>
+        </div>
+    </section>
+
+    <!-- FINAL THOUGHT -->
+    <section class="content-section">
+        <div class="container">
+            <div style="background: var(--bg-light); padding: var(--spacing-xl); border-radius: var(--border-radius); text-align: center;">
+                <h2 style="margin-top: 0;">Looking Forward</h2>
+                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">The A.U.D.I.T. Protocol is a starting point, not a finished product. <strong>Your engagement shapes its evolution.</strong></p>
+                
+                <p style="margin-top: var(--spacing-lg); font-style: italic;">"The best way to predict the future of education is to collaborate in creating it."</p>
+                
+                <p style="margin-top: var(--spacing-xl); font-weight: 600;">Thank you for your interest in developing critical AI literacy.<br>Looking forward to hearing from you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>A.U.D.I.T. Protocol</h3>
+                    <p>Critical AI Literacy Framework for Secondary Education</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="methodology.html">Methodology</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="The_Columbo_Teacher_Full_Article.pdf" download>Full Article (PDF)</a></li>
+                        <li><a href="https://philipped79.github.io/audit-ia" target="_blank">French Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>License</h3>
+                    <p>CC BY-NC-SA 4.0</p>
+                    <p>Non-commercial educational use</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Philippe Dupeyrat. All rights reserved.</p>
+                <p class="footer-transparency-note">This site was created with the assistance of AI—practicing the critical evaluation we teach.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
